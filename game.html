@@ -5,47 +5,37 @@
 </div>
 <div class="h1">
      <h1 id="h1"
-          onclick="StartGame(); vx = canvas.width / 675; vy = -canvas.height / 421.5; vx2 = canvas.width / 675; vy2 = -canvas.width / 675; setInterval(function () { ScoreAdding(1) }, 1000); BallSpeed()">
+          onclick="StartGame(); vx = innerWidth / 600 ; vy = -innerWidth / 600 ; vx2 = innerWidth / 600 ; vy2 = -innerWidth / 600 ; setInterval(function () { ScoreAdding(1) }, 1000); BallSpeed(); Move();">
           Start!</h1>
      <div class="h2">
-          <h2 id="h2"><img src="mango.png" width="100" height="100"/>Smooth Surviver!<img src="sprite(1).svg" width="100" height="100" /></h2>
+          <h2 id="h2"><img src="mango3.svg" width="100" height="100" />Smooth Surviver!<img src="sprite(1).svg"
+                    width="100" height="100" /></h2>
 
           <div class="h3">
-               <h3 id="h3">Game Over!</h3>
+               <h3 id="h3">&nbsp; Game Over!</h3>
           </div>
 
-          <h5 id="h5">Just once. Because you were hungry, you took the biggest mango in the world (A very pixelated one!), from Billy (the spiky ball). Months later, Billy
-          has tracked you down and vows vengeance! He stole your best mango, and your quest is to survive and
+          <h5 id="h5"> ## CONTROLS ##
+               
+               <br> A - go left| D - go right| Space - jump| Objective: survive the ball.<br>
+             ## STORY ##
+               <br>Just once. Because you were hungry, you took the biggest mango in the world (A very pixelated
+               one!), from Billy (the spiky ball). Months later, Billy
+               has tracked you down and vows vengeance! He stole your best mango, and your quest is to survive and
                reclaim it! Now, go defeat that Billy boy! but be careful. He is quite dangerous. And possibly brought a
                pal or Timmy...
           </h5>
-          <h6 id="h6">After all of that, you have finally succeeded in obtaining your pixelated Mango! Go eat your mango like a
-               king now! :D<br><img src="mango.png" width="70" height="70" /> <img src="sprite(3).svg" width="70"
+          <h6 id="h6">After all of that, you have finally succeeded in obtaining your pixelated Mango! Go eat your mango
+               like a
+               king now! :D<br><img src="mango3.svg" width="70" height="70" /> <img src="sprite(3).svg" width="70"
                     height="80" /></h6>
      </div>
      <br>
 
      <link rel="shortcut icon" href="logo2.svg" />
-     <canvas id="MyCanvas" width="1350" height="843"></canvas><br>
+     <canvas id="MyCanvas" width="1700" height="850"></canvas><br>
      <div id="store">
-          <div class="clickerContainer">
-               <br> <button onclick="Fast()">Go Faster</button>
-               <br> <button onclick="Slow()">Go Slower</button>
-               <br><button onclick="Ball()">Make Character Bigger</button>
-               <br><button onclick="Ball2()">Make Character Smaller</button>
-               <br> <button onclick="Wonky()">Make Character crazy</button>
-               <br> <button onclick="GravPool()">Increase Gravity</button>
-               <br><button onclick="GravNo()">Lower Gravity</button>
-
-               <h3 style="position: absolute; left: -25vw; font-size: 2vw; width: 15vw; height: 100px;">
-                    Score <br><br>Get 100 score!</h3>
-               <h3 style="position: absolute; left: -24vw; font-size: 2vw; width: 15vw; height: 100px; ">
-                    <h3 style="position: absolute; left: -29.4vw; font-size: 2vw; width: 15vw; height: 100px;"
-                         id="score">0</h3>
-               </h3>
-
-
-          </div>
+          </h3>
      </div>
 
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,10 +46,15 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
 
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
 </html>
 <style>
      @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap');
+
      body {
           height: 98vh;
           width: 98vw;
@@ -68,15 +63,16 @@
      }
 
      #MyCanvas {
-          border: 0.15vw cyan outset;
+          border: 0.1vw white outset;
           background-image: url("terrain.jpg");
           cursor: none;
-          width: 74%;
-          height: 95%;
+          height: 98vh;
+          width: 98.9vw;
           user-select: none;
-          background-size: cover;
           background-color: black;
           position: absolute;
+          margin: -1% auto;
+          background-size: 100% 100%;
      }
 
      button {
@@ -84,7 +80,7 @@
           cursor: pointer;
           font-size: 1vw;
           font-family: 'Josefin Slab', cursive;
-                    border-radius: 0.3vw;
+          border-radius: 0.3vw;
           margin: 0.4vw auto;
           border: 0.1vw cyan solid;
           background-image: url("buttonbackground.png");
@@ -99,14 +95,16 @@
 
      #store {
           border-radius: 20px;
-          background-color: black;
-          height: 75%;
-          width: 21.6%;
+          background-color: transparent;
+          height: 50%;
+          width: 85%;
           text-align: center;
           position: absolute;
-          margin-left: 76%;
-          overflow: auto;
+          margin-left: 14%;
           top: 9vw;
+          margin: -5% auto;
+          cursor: none;
+          overflow: none;
      }
 
      .clickerContainer button {
@@ -156,7 +154,7 @@
           width: 30vw;
           font-size: 9.8vw;
           font-weight: bold;
-          font-family: 'Josefin Slab', cursive;
+          font-family: "VT323", cursive;
           color: rgb(14, 219, 255);
           text-shadow: 0.1vw 0.2vw rgb(255, 0, 0);
           text-align: center;
@@ -166,23 +164,29 @@
           border: 0.2vw red outset;
           transition: transform 0.1s;
           border-radius: 3vw;
-          background: rgb(57, 50, 156);
+          background: black;
           position: absolute;
           cursor: pointer;
-          font-weight: light;
-          
      }
 
      h2 {
           position: absolute;
           margin: 1vw auto;
           color: rgb(255, 15, 15);
-          font-size: 7vw;
-          width: 70vw;
+          font-size: 8vw;
+          width: 64vw;
           left: 16.7vw;
-              font-family: 'Josefin Slab', serif;
+          font-family: "VT323", cursive;
           user-select: none;
-         
+          border: 2px red outset;
+          padding: 1vw;
+          background: rgb(0, 0, 0);
+          border-radius: 1vw;
+          animation-name: animation;
+          animation-duration: 1.5s;
+          text-align: center;
+          height: 7vw;
+          animation-iteration-count: infinite;
           text-shadow:
                0.1vw 0.05vw 0.1vw #00b7ff,
                0.1vw 0.10vw 0.1vw #00b7ff,
@@ -201,14 +205,72 @@
                0.16vw 1vw 0.60vw rgba(63, 255, 5, 1)
      }
 
+     @keyframes animation {
+
+          0%,
+          100% {
+               rotate: 2deg;
+          }
+
+          50% {
+               rotate: -2deg;
+          }
+
+     }
+
+     @-webkit-keyframes animation {
+
+          0%,
+          100% {
+               rotate: 2deg;
+          }
+
+          50% {
+               rotate: -2deg;
+          }
+
+     }
+
+     @-moz-keyframes animation {
+
+          0%,
+          100% {
+               rotate: 2deg;
+          }
+
+          50% {
+               rotate: -2deg;
+          }
+
+     }
+
+     @-o-keyframes animation {
+
+          0%,
+          100% {
+               rotate: 2deg;
+          }
+
+          50% {
+               rotate: -2deg;
+          }
+
+     }
+
      h3 {
           margin: 0.5vw auto;
           color: rgb(255, 15, 15);
           font-size: 7vw;
           width: 40vw;
-          margin-left: 29vw;
-          font-family: 'Josefin Slab', cursive;
+          margin-left: 27vw;
+          font-family: "VT323", cursive;
           user-select: none;
+          background: black;
+          border: 0.2vw red outset;
+          padding: 1vw;
+          position: absolute;
+
+          border-radius: 3vw;
           text-shadow:
                0.1vw 0.05vw 0.1vw #00b7ff,
                0.1vw 0.10vw 0.1vw #00b7ff,
@@ -232,7 +294,7 @@
           width: 40vw;
           font-size: 8vw;
           font-weight: bold;
-          font-family: 'Josefin Slab', cursive;
+          font-family: "VT323", cursive;
           color: rgb(14, 219, 255);
           text-shadow: 0.1vw 0.2vw rgb(255, 0, 0);
           text-align: center;
@@ -242,20 +304,21 @@
           border: 0.2vw red outset;
           transition: transform 0.1s;
           border-radius: 3vw;
-          background: rgb(57, 50, 156);
+          background: black;
           position: absolute;
           cursor: pointer;
+
      }
 
      h5 {
           position: absolute;
           margin: 35vw auto;
           color: rgb(255, 15, 15);
-          font-size: 3vw;
+          font-size: 2vw;
           width: 87vw;
           left: 5vw;
           height: 11.5vw;
-          font-family: 'Josefin Slab', cursive;
+          font-family: "VT323", cursive;
           user-select: none;
           text-shadow:
                0.1vw 0.03vw 0.1vw #00b7ff,
@@ -263,10 +326,7 @@
                0.1vw 0.12vw 0.1vw #00b7ff,
                0.1vw 0.18vw 0.1vw #00b7ff,
                0.1vw 0.25vw 0.1vw #00b7ff,
-               0.1vw 0.32vw 0.1vw #00b7ff,
-
-               0.1vw 0.5vw 0.05vw rgba(0, 255, 136, 1),
-               0.1vw 0.5vw 0.10vw rgba(0, 255, 170, 0.5);
+               0.1vw 0.32vw 0.1vw #00b7ff;
           text-align: center;
           border: 5px red outset;
           overflow: auto;
@@ -295,26 +355,27 @@
           text-align: center;
           border: 3px red outset;
      }
-     
+
      img {
-       height: 6vw;
-       width: 6vw;
+          height: 6vw;
+          width: 6vw;
      }
 </style>
 
 <title>Smooth Surviver!</title>
 
 <script>
+     audio4()
 
      let canvas = document.getElementById("MyCanvas");
      let c = canvas.getContext("2d")
 
-     var x = canvas.width / 2;
-     var y = canvas.height - 40;
+     var x = innerWidth /2;
+     var y = innerHeight;
 
      let dx = 0;
      let dy = 0;
-     let SpriteSize = 60;
+     let SpriteSize = innerHeight / 16;
 
      let grounded = false;
 
@@ -337,21 +398,30 @@
      let BlockDX = canvas.width / 6;
      let BlockDY = canvas.height / 6;
      var img = new Image();
-     img.src = "sprite(1).svg";
+     img.src = "sprite(1).svg"
 
      var img2 = new Image();
-     img2.src = "ball1.svg";
+     img2.src = "ball1.svg"
 
      var img3 = new Image();
      img3.src = "ball1.svg"
 
-     let ballx = canvas.width / 2;
-     let bally = canvas.height / 3;
-     let ball2x = canvas.width / 2;
-     let ball2y = canvas.height / 3;
+     var img4 = new Image();
+     img4.src = "spike1.svg"
 
-     let ballRadius = 45;
-     let ballRadius2 = 70;
+     var img5 = new Image();
+     img5.src = "spike1.svg"
+
+     var img6 = new Image();
+     img6.src = "mango3.svg"
+
+     let ballx = innerWidth / 2;
+     let bally = innerHeight / 3;
+     let ball2x = innerWidth / 2;
+     let ball2y = innerHeight / 3;
+
+     let ballRadius = innerHeight / 20;
+     let ballRadius2 = innerHeight / 13;
 
      let vx = 0;
      let vy = -0;
@@ -361,17 +431,136 @@
 
      let score = 0;
 
-     audio4()
+     let spikeSize = innerHeight / 13.6;
+     let SpikeX = innerWidth - 80;
+     let SpikeY = innerHeight - 126;
+     let spikeSize2 = innerHeight / 13.6;
+     let SpikeX2 = canvas.width - 1690;
+     let SpikeY2 = innerHeight - 126;
+     let mangoX = innerWidth/ 2.2;
+     let mangoY = innerWidth/ 6;
+     let mangoSize = innerWidth / 21.3;
+
+     let Died = false;
+     let PowerUp = false;
+     let mangoCheck = false
+     var countdown = 15;
+     var random = Math.floor(Math.random() * 50000);
+     
+     c.canvas.width = innerWidth;
+     c.canvas.height = innerHeight;
+
+     function Time() {
+          if (countdown <= 15) {
+               setInterval(function () {
+                    Countdown(1)
+               }, 1000)
+          }
+     }
+     
+     function Outside() {
+       if (SpikeX2 > canvas.width && SpikeX2 > canvas.width) {
+           SpikeX2 = canvas.width - 1690;
+          }
+          
+          if(SpikeY2 > canvas.height&& SpikeY2 > canvas.height) {
+            SpikeY = innerHeight - 126;
+          }
+      
+     }
+     
+     function Outside2() {
+       if (SpikeX > canvas.width && SpikeX < canvas.width) {
+           SpikeX = innerWidth - 80;
+          }
+          
+          if(SpikeY > canvas.height && SpikeY > canvas.height) {
+            SpikeY = innerHeight - 126;
+          }
+       
+     }
+    
+
+     function Countdown(amount) {
+          countdown = countdown - amount;
+          document.getElementById("countdown")
+     }
+     
+     
 
      function Draw() {
-          c.clearRect(0, 0, canvas.width, canvas.height);     
+          c.clearRect(0, 0, canvas.width, canvas.height);
           c.beginPath()
           c.drawImage(img, x, y, SpriteSize, SpriteSize);
-          requestAnimationFrame(Draw)  
+          requestAnimationFrame(Draw)
+          c.shadowBlur = "0";
           c.closePath()
           x += dx;
           y += dy;
           collison()
+          var gradient2 = c.createLinearGradient(10, 10, 500, 15)
+          gradient2.addColorStop(0.1, "red")
+          gradient2.addColorStop(0.2, "cyan")
+          gradient2.addColorStop(0.3, "purple")
+          gradient2.addColorStop(0.4, "blue")
+          gradient2.addColorStop(0.5, "pink")
+          gradient2.addColorStop(0.6, "red")
+          gradient2.addColorStop(0.7, "orange")
+          gradient2.addColorStop(0.8, "yellow")
+          gradient2.addColorStop(0.9, "pink")
+          gradient2.addColorStop(1, "purple");
+          c.fillStyle = gradient2;
+          var gradient3 = c.createLinearGradient(10, 10, 2000, 15)
+          gradient3.addColorStop(0.1, "red")
+          gradient3.addColorStop(0.2, "cyan")
+          gradient3.addColorStop(0.3, "purple")
+          gradient3.addColorStop(0.4, "blue")
+          gradient3.addColorStop(0.5, "pink")
+          gradient3.addColorStop(0.6, "red")
+          gradient3.addColorStop(0.7, "orange")
+          gradient3.addColorStop(0.8, "yellow")
+          gradient3.addColorStop(0.9, "pink")
+          gradient3.addColorStop(1, "purple");
+          c.fillStyle = gradient2;
+
+          c.font = "100 2.5vw VT323"
+          c.fillText(score, canvas.width / 50, canvas.height - 10)
+          c.fillText("Score", canvas.width / 18, canvas.height - 10)
+          c.fillStyle = gradient3;
+          c.fillText("Get 100 score!", canvas.width / 1 - 300, canvas.height - 10)
+     }
+
+
+     function DrawSpike() {
+          c.beginPath();
+          c.drawImage(img4, SpikeX, SpikeY, spikeSize, spikeSize);
+          requestAnimationFrame(DrawSpike)
+          Death()
+          Outside2()
+          c.closePath();
+     }
+
+     function DrawSpike2() {
+          c.beginPath();
+          c.drawImage(img5, SpikeX2, SpikeY2, spikeSize2, spikeSize2);
+          requestAnimationFrame(DrawSpike2)
+          Outside()
+          Death2()
+          c.closePath();
+     }
+
+     function Death() {
+          if ((x > SpikeX - spikeSize + 30 && x < SpikeX + spikeSize) && (y > SpikeY - spikeSize && y < SpikeY + spikeSize)) {
+               Died = true;
+          }
+
+     }
+
+     function Death2() {
+          if ((x > SpikeX2 - spikeSize2 && x < SpikeX2 + spikeSize2 - 17) && (y > SpikeY2 - spikeSize2 && y < SpikeY2 + spikeSize2 - 17)) {
+               Died = true;
+          }
+
      }
 
 
@@ -381,7 +570,6 @@
           c.fillStyle = "#0095DD";
           c.fill()
           Faces()
-          
           c.closePath();
      }
 
@@ -394,43 +582,103 @@
           Faces()
           c.closePath();
      }
+
+     function Mango() {
+          c.beginPath();
+          c.drawImage(img6, mangoX, mangoY, mangoSize, mangoSize)
+          requestAnimationFrame(Mango)
+          MangoCheck()
+          mangoY += 5;
+
+          if (mangoY + mangoSize > canvas.height - 70) {
+               mangoY = canvas.height - 150;
+          }
+
+          setTimeout(() => {
+               mangoSize = false;
+          }, 10000)
+          c.closePath()
+     }
+
+     function MangoCheck() {
+          if ((x - 50 > mangoX - mangoSize && x - 50 < mangoX + mangoSize) && (y - 50 > mangoY - mangoSize && y - 50 < mangoY + mangoSize)) {
+               mangoCheck = true;
+               PowerUp = true;
+               audio5()
+               Time()
+
+               if (PowerUp) {
+                    Fast()
+                    for (var i = 0; i < 5; i++) {
+                         GravNo()
+                    }
+               }
+
+
+               setTimeout(() => {
+                    for (var i = 0; i < 5; i++) {
+                         GravPool()
+                    }
+
+                    Move()
+                    audio6()
+               }, 16000)
+          }
+          var gradient = c.createLinearGradient(10, 10, 500, 0)
+          gradient.addColorStop(0.1, "red")
+          gradient.addColorStop(0.2, "cyan")
+          gradient.addColorStop(0.3, "purple")
+          gradient.addColorStop(0.4, "blue")
+          gradient.addColorStop(0.5, "pink")
+          gradient.addColorStop(0.6, "red")
+          gradient.addColorStop(0.7, "orange")
+          gradient.addColorStop(0.8, "yellow")
+          gradient.addColorStop(0.9, "pink")
+          gradient.addColorStop(1, "purple")
+          c.fillStyle = gradient;
+          if (mangoCheck) {
+               c.font = "700 2.60vw VT323"
+               c.fillText(countdown, canvas.width / 2.2, canvas.height / 12);
+               mangoSize = 0;
+          }
+
+
+          if (countdown <= -1) {
+               c.clearRect(canvas.width / 2.2, canvas.height /20, 57, 57)
+               setInterval(function () {
+                    countdown = -1;
+               }, 1000)
+          }
+
+
+     }
+
      setInterval(function () {
           draw2()
      }, 0);
 
-     setInterval(function () {
-          ball2x = Math.floor = (Math.random() * 1100 + 100);
-          ball2y = Math.floor = (Math.random() * 700 + 50);
-     }, 10000);
-
      function BallSpeed() {
-       if(score <= 50) {    
-        setInterval(function () {
-          /* canvas.width / 675 
-            canvas.height / 421.5
-          */
-               vx = Math.floor = (Math.random() * canvas.width / 112.5 + canvas.width /  675);
-               vy = Math.floor = (Math.random() * -canvas.height / 135 + -canvas.height /  421.5);
+          if (score <= 50) {
+               setInterval(function () {
+                    vx = Math.floor = (Math.random() * innerWidth / 190  + innerWidth / 1000 );
+                    vy = Math.floor = (Math.random() * innerWidth / 190  + innerWidth / 1000 );
 
-               vx2 = Math.floor = (Math.random() * canvas.width / 96.4 + canvas.width /  675);
-               vy2 = Math.floor = (Math.random() * canvas.height / 64.8 + -canvas.height / -421.5);
-               
-               if(score >= 50) {
-                 setInterval(function() {
-                vx = Math.floor = (Math.random() * canvas.width / 103 + canvas.width /  675);
-               vy = Math.floor = (Math.random() * -canvas.height / 76.6 + -canvas.height / 421.5);
+                    if (score >= 50) {
+                         setInterval(function () {
+                              vx = Math.floor = (Math.random() * innerWidth / 135  + innerWidth / 1000 );
+                              vy = Math.floor = (Math.random() * innerWidth / 135  + innerWidth / 1000 );
 
-                vx2 = Math.floor = (Math.random() * canvas.width / 103 + canvas.width /  675);
-               vy2 = Math.floor = (Math.random() * canvas.height / 76.6 + canvas.height / 421.5);
-               
-                 }, 4000);
-               }
-        }, 4000);
-       
-        }
 
-        }
-      
+                              vx2 = Math.floor = (Math.random() * innerWidth / 120  + innerWidth / 1000 );
+                              vy2 = Math.floor = (Math.random() * innerWidth / 120  + innerWidth / 1000 );
+                         }, 4000);
+                    }
+               }, 4000);
+
+          }
+
+     }
+
 
      function draw3() {
           c.clearRect(0, 0, canvas.width, canvas.height);
@@ -439,18 +687,25 @@
                vx2 = -vx2;
                audio3()
           }
-          if (ball2y + vy2 > canvas.height - ballRadius - 55 || ball2y + vy2 < ballRadius - 55) {
+          if (ball2y + vy2 > canvas.height - ballRadius - 70 || ball2y + vy2 < ballRadius - 55) {
                vy2 = -vy2;
                audio3()
+          }
+
+          if ((ball2x > SpikeX - spikeSize && ball2x < SpikeX + ballRadius2) && (ball2y > SpikeY - spikeSize && ball2y < SpikeY + ballRadius)) {
+               vx2 = -vx2;
+               vy2 = -vy2;
+          }
+          if ((ball2x > SpikeX2 - spikeSize2 && ball2x < SpikeX2 + ballRadius2) && (ball2y > SpikeY2 - spikeSize2 && ball2y < SpikeY2 + ballRadius2)) {
+               vx2 = -vx2;
+               vy2 = -vy2;
           }
 
           ball2x += vx2;
           ball2y += vy2;
 
           if ((ball2x > x - ballRadius2 && ball2x < x + ballRadius2) && (ball2y > y - ballRadius2 && ball2y < y + ballRadius2)) {
-               SpriteSize = 0;
-               x = 1000412;
-               y = 124100;
+               Died = true;
                audio()
           }
      }
@@ -468,24 +723,32 @@
                audio3()
           }
 
+          if ((ballx > SpikeX - spikeSize && ballx < SpikeX + ballRadius) && (bally > SpikeY - spikeSize && bally < SpikeY + ballRadius)) {
+               vx = -vx;
+               vy = -vy;
+          }
+          if ((ballx > SpikeX2 - spikeSize2 && ballx < SpikeX2 + ballRadius) && (bally > SpikeY2 - spikeSize2 && bally < SpikeY2 + ballRadius)) {
+               vx = -vx;
+               vy = -vy;
+          }
+
           ballx += vx;
           bally += vy;
 
           if ((ballx > x - ballRadius && ballx < x + ballRadius) && (bally > y - ballRadius && bally < y + ballRadius)) {
-               SpriteSize = 0;
-               x = 1000412;
-               y = 124100;
-
+               Died = true;
                audio()
           }
 
-          if (SpriteSize == 0) {
+          if (Died) {
                canvas.style.display = "none";
                store.style.display = "none";
                h1.style.display = "none";
                h2.style.display = "none";
                h3.style.display = "block";
                h4.style.display = "block";
+               h6.style.display = "none";
+               h5.style.display = "none"
                setInterval(function () {
                     score = 0;
                     vx = 0;
@@ -494,9 +757,10 @@
                     dx = 0;
                     vx2 = 0;
                     vy2 = 0;
+                    x = 1000000;
+                    y = 1000000;
+
                }, 10);
-
-
           }
 
           if (score >= 100) {
@@ -510,7 +774,6 @@
                     dy = 0;
                     x = 1000000;
                     y = 1000000;
-
                }, 1);
                canvas.style.display = "none";
                store.style.display = "none";
@@ -519,76 +782,76 @@
                h5.style.display = "none";
           }
 
-          if (score >= 50) {            
+          if (score >= 50) {
                draw3()
                drawBall2()
                requestAnimationFrame(drawBall2)
-               Collide()             
           }
+
      }
 
      function Faces() {
           if (vx >= 3) {
                img2.src = "ball1.svg";
                img3.src = "ball1.svg";
-               c.shadowBlur = "10";
-          c.shadowColor = "green"
+
+
                if (vy >= -3) {
                     img2.src = "ball1.svg";
                     img3.src = "ball1.svg";
-                    c.shadowBlur = "10";
-          c.shadowColor = "green"
+
+
                }
 
-               if(score >= 50) {
-               img2.src = "Mball1.svg";
-               img3.src = "Mball1.svg";
-               c.shadowColor = "green"
-          }
+               if (score >= 50) {
+                    img2.src = "Mball1.svg";
+                    img3.src = "Mball1.svg";
 
-    }
+               }
+
+          }
 
 
           if (vx >= 5) {
                img2.src = "ball2.svg";
                img3.src = "ball2.svg";
-               c.shadowBlur = "10";
-          c.shadowColor = "yellow"
+
+
 
                if (vy >= -5) {
                     img2.src = "ball2.svg";
                     img3.src = "ball2.svg";
-                    c.shadowBlur = "10";
-          c.shadowColor = "yellow"
+
+
                }
-               if(score >= 50) {
-               img2.src = "Mball2.svg";
-               img3.src = "Mball2.svg";
-               c.shadowColor = "yellow"
-          }
+               if (score >= 50) {
+                    img2.src = "Mball2.svg";
+                    img3.src = "Mball2.svg";
+
+               }
           }
 
           if (vx >= 10) {
                img2.src = "ball3.svg";
                img3.src = "ball3.svg";
 
-               c.shadowBlur = "10";
-          c.shadowColor = "red"
+
+
 
                if (vy >= -10) {
                     img2.src = "ball3.svg";
                     img3.src = "ball3.svg";
 
-                    c.shadowBlur = "10";
-          c.shadowColor = "red"
+
+
                }
 
-               if(score >= 50) {
-               img2.src = "Mball3.svg";
-               img3.src = "Mball3.svg";
-               c.shadowColor = "red"
-          }
-          
+               if (score >= 50) {
+                    img2.src = "Mball3.svg";
+                    img3.src = "Mball3.svg";
+
+               }
+
           }
 
      }
@@ -604,12 +867,24 @@
           h2.style.display = "none";
           h5.style.display = "none";
           Draw()
-          drawBall();
+          drawBall()
+          DrawSpike()
+          DrawSpike2();
+
+          (function RandomizeMango() {
+               setTimeout(function () {
+                    Mango()
+               }, random);
+          }());
+
+
+
      }
 
+
      function collison() {
-          if (y >= canvas.height - SpriteSize - 50) {
-               y = canvas.height - SpriteSize - 50;
+          if (y >= canvas.height - SpriteSize - 56) {
+               y = canvas.height - SpriteSize - 56;
                grounded = true;
           }
 
@@ -625,105 +900,92 @@
           if (x < SpriteSize - SpriteSize) {
                x = 0;
           }
-          
+
 
      }
 
+     function Move() {
+          addEventListener("keydown", function (move) {
+               if (move.code == 'Space') {
+                    if (grounded) {
+                         dy = -10, grounded = false;
+                         img.src = "sprite(4).svg";
 
-     function collison3() {
-          if ((x > BlockDX - SpriteSize && x < BlockDX + BlockDwidth - SpriteSize + 30) && (y > BlockDY - SpriteSize && y < BlockDY + BlockDheight - SpriteSize + 30)) {
-               SpriteSize = 0;
-          }
-     }
+                         setTimeout(() => {
+                              img.src = "sprite(1).svg"
+                         }, 1050);
+                         audio2()
 
-     function Collide() {
-          if((ballx > ball2x - ballRadius - ballRadius2 && ballx < ball2x + 30) && (bally > ball2y - ballRadius - ballRadius2 && bally < ball2y + 30)) {
-               setTimeout(() => {
-                    vx = -vx;
-                    vy = -vy; 
-               }, 1);
-          } 
-     }
+                         if (score >= 50) {
+                              dy = -13, grounded = false;
+                         }
+                    }
 
-     addEventListener("keydown", function (move) {
-          if (move.code == 'Space') {
-               if (grounded) {
-                    dy = -10, grounded = false;
-                    img.src = "sprite(4).svg";
+
+               }
+
+               if (move.code == 'KeyA') {
+                    dx = -5;
+                    img.src = "sprite(3).svg";
 
                     setTimeout(() => {
-                         img.src = "sprite(1).svg"
-                    }, 1050);
-                    audio2()
+                         img.src = "sprite(3)2.svg";
+                    }, 200);
 
-                    if(score >= 50) {
-                         dy = -13, grounded = false;                
+                    if (score >= 50) {
+                         dx = -8;
                     }
                }
 
+               if (move.code == 'KeyD') {
+                    dx = 5;
+                    img.src = "sprite(2).svg"
 
-          }
+                    setTimeout(() => {
+                         img.src = "sprite(2)2.svg";
+                    }, 200);
 
-          if (move.code == 'KeyA') {
-               dx = -5;
-               img.src = "sprite(3).svg";
-
-               setTimeout(() => {
-                    img.src = "sprite(3)2.svg";
-               }, 200);
-
-               if(score >= 50) {
-                         dx = -8;                
+                    if (score >= 50) {
+                         dx = 8;
                     }
-          }
+               }
 
-          if (move.code == 'KeyD') {
-               dx = 5;
-               img.src = "sprite(2).svg"
-
-               setTimeout(() => {
-                    img.src = "sprite(2)2.svg";
-               }, 200);
-
-               if(score >= 50) {
-                         dx = 8;                
-                    }
-          }
-
-          console.log(move.code)
-
-          if (move.code == 'KeyR') {
-               location.reload()
-          }
-
-          
-          if (move.code == 'KeyI') {
-                         vx = 0;
-                         vy = 0;
-                         vy2 = 0;
-                         vx2 = 0;
+               if (move.code == 'KeyR') {
+                    location.reload()
                }
 
 
-               
-     })
+               if (move.code == 'KeyI') {
+                    vx = 0;
+                    vy = 0;
+                    vy2 = 0;
+                    vx2 = 0;
+               }
+
+
+
+          })
+
+     }
 
      addEventListener("keyup", function (move) {
           if (move.code == 'KeyA') {
-               dx = -0;
+               dx = 0;
                img.src = "sprite(1).svg";
+
           }
 
           if (move.code == 'KeyD') {
                dx = 0;
                img.src = "sprite(1).svg"
-      }
+          }
           if (move.code == 'KeyI') {
-                    vx = 2;
-                    vy = -2;
-                    vy2 = -2;
-                    vx2 = 2;
-               }
+               vx = 2;
+               vy = -2;
+               vy2 = -2;
+               vx2 = 2;
+          }
+
      })
 
      setInterval(function Gravity() {
@@ -827,7 +1089,7 @@
 
      function ScoreAdding(amount) {
           score = score + amount;
-          document.getElementById("score").innerHTML = score;
+          document.getElementById("score");
      }
 
      function audio() {
@@ -852,5 +1114,17 @@
           var audio4 = new Audio("song.wav");
           audio4.loop = true;
           audio4.play()
-     } 
+     }
+
+     function audio5() {
+          var audio5 = new Audio("powerUp.wav")
+          audio5.loop = false;
+          audio5.play()
+     }
+
+     function audio6() {
+          var audio6 = new Audio("explosion2.wav")
+          audio6.loop = false;
+          audio6.play()
+     }
 </script>
